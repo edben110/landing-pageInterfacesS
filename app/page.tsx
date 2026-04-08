@@ -212,7 +212,11 @@ export default function Home() {
               <span className="h-8 w-8 rounded-lg border border-[#edd6cd] bg-white" />
             </div>
 
-            <div className="mt-4 grid grid-flow-col auto-cols-[minmax(118px,1fr)] gap-3 overflow-x-auto pb-2" role="tablist" aria-label="Menu tabs">
+            <div
+              className="mt-4 grid grid-flow-col auto-cols-[minmax(118px,1fr)] gap-3 overflow-x-auto pb-2 md:grid-flow-row md:auto-cols-auto md:grid-cols-3 md:overflow-visible lg:grid-cols-6"
+              role="tablist"
+              aria-label="Menu tabs"
+            >
               {categories.map((item, index) => (
                 <button
                   type="button"
@@ -263,7 +267,10 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="mt-4 grid grid-flow-col auto-cols-[minmax(210px,1fr)] gap-3 overflow-x-auto pb-2" aria-label="Scrollable product cards">
+            <div
+              className="mt-4 grid grid-flow-col auto-cols-[minmax(210px,1fr)] gap-3 overflow-x-auto pb-2 md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:overflow-visible lg:grid-cols-3 xl:grid-cols-6"
+              aria-label="Scrollable product cards"
+            >
               {products.map((product, index) => (
                 <article
                   className="grid gap-2 rounded-[18px] border border-[#eeddd3] bg-white p-3"
