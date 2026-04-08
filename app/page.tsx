@@ -133,7 +133,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#FEF9F5] p-2 sm:p-3 lg:p-6">
       <div className="mx-auto max-w-[1320px] overflow-hidden rounded-[30px] border border-[#e6d7ce] bg-[#FEF9F5] shadow-[0_20px_50px_rgba(102,33,39,0.09)]">
-        <header className="flex flex-wrap items-center gap-3 px-4 pb-4 pt-5 lg:px-8">
+        <header className="flex flex-wrap items-center gap-3 bg-[#FBEDEC] px-4 pb-4 pt-5 lg:px-8">
           <a
             className="font-[var(--font-title)] text-[clamp(2rem,3vw,2.75rem)] font-extrabold leading-none tracking-[0.02em] text-[#ad1f2f]"
             href="#"
@@ -178,7 +178,7 @@ export default function Home() {
           </div>
         </header>
 
-        <nav className="border-y border-[#ecd6ca] bg-[#fff7f3]" aria-label="Main categories">
+        <nav className="border-y border-[#ecd6ca] bg-[#FBEDEC]" aria-label="Main categories">
           <div className="grid items-center gap-x-2 gap-y-3 px-4 py-3 text-[13px] font-semibold text-[#7A2D38] sm:grid-cols-4 lg:grid-cols-[repeat(7,minmax(0,1fr))_auto] lg:px-8">
             {navItems.map((item) => (
               <a key={item} href="#" className="text-center">
@@ -305,7 +305,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="mt-4 flex justify-end" role="tablist" aria-label="Menu tabs">
+            <div className="mt-2 flex justify-end" role="tablist" aria-label="Menu tabs">
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {categories.map((item, index) => {
                   const Icon = item.icon;
@@ -315,13 +315,13 @@ export default function Home() {
                       role="tab"
                       key={item.name}
                       aria-selected={index === 0}
-                      className={`grid h-[90px] w-[145px] place-items-center rounded-[18px] border bg-white px-3 py-3 text-sm font-black ${
+                      className={`flex h-[90px] w-[145px] flex-col items-center justify-start rounded-[18px] border bg-white px-3 pb-2 pt-2 text-sm font-black ${
                         index === 0
                           ? "border-[#e7bcc2] text-[#ad1f2f] shadow-[0_8px_18px_rgba(143,65,72,0.14)]"
                           : "border-[#ecd6cc] text-[#81434f]"
                       }`}
                     >
-                      <Icon className="mb-1 h-5 w-5" />
+                      <Icon className="h-5 w-5" />
                       {item.name}
                     </button>
                   );
@@ -484,10 +484,10 @@ export default function Home() {
                 <div className="grid h-full grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-rows-3" aria-label="Customer moment gallery">
                   {galleryCards.map((item, index) => (
                     <article
-                      className="flex h-full flex-col overflow-hidden rounded-[14px] border border-[#efd8cf] bg-white"
+                      className="h-full overflow-hidden rounded-[14px] border border-[#efd8cf] bg-white"
                       key={`${item.title}-${index}`}
                     >
-                      <div className="relative min-h-[94px] flex-1 overflow-hidden">
+                      <div className="relative h-full min-h-[124px] overflow-hidden">
                         <Image
                           src={item.image}
                           alt={item.title}
@@ -496,7 +496,6 @@ export default function Home() {
                           className="object-cover"
                         />
                       </div>
-                      <strong className="block p-2 text-sm font-extrabold text-[#79414a]">{item.title}</strong>
                     </article>
                   ))}
                 </div>
