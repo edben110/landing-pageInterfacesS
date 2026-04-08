@@ -1,14 +1,41 @@
 import Image from "next/image";
+import {
+  Calendar,
+  CakeSlice,
+  Cookie,
+  Gift,
+  Heart,
+  Palette,
+  Plus,
+  Search,
+  ShieldCheck,
+  ShoppingCart,
+  Sparkles,
+  Star,
+  Ticket,
+  Truck,
+  User,
+  Users,
+} from "lucide-react";
 
 export default function Home() {
-  const categories = [
-    "Classic",
-    "Gourmet",
+  const navItems = [
+    "Cakes",
+    "Theme Cakes",
     "Desserts",
-    "Cookies",
-    "Cupcakes",
-    "Brownies",
+    "Birthday",
+    "Hampers",
+    "Anniversary",
   ];
+
+  const categories = [
+    { name: "Classic", icon: CakeSlice },
+    { name: "Gourmet", icon: Sparkles },
+    { name: "Desserts", icon: Gift },
+    { name: "Cookies", icon: Cookie },
+  ];
+
+  const quickPills = [Gift, Calendar, Ticket];
 
   const products = [
     {
@@ -35,25 +62,13 @@ export default function Home() {
       rating: "4.6",
       image: "/images/product-butterscotch.svg",
     },
-    {
-      name: "Classic Black Forest",
-      price: "$449",
-      rating: "4.8",
-      image: "/images/product-forest.svg",
-    },
-    {
-      name: "Belgian Fudge Slice",
-      price: "$579",
-      rating: "4.9",
-      image: "/images/product-belgian.svg",
-    },
   ];
 
   const promiseStats = [
-    "On-Time Delivery",
-    "500+ Designs",
-    "2 Cr+ Orders",
-    "Baked Fresh",
+    { label: "On-Time Delivery", icon: Truck },
+    { label: "500+ Designs", icon: Palette },
+    { label: "2 Cr+ Orders", icon: Users },
+    { label: "Baked Fresh", icon: ShieldCheck },
   ];
 
   const galleryCards = [
@@ -68,7 +83,38 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#ead9bf] p-2 sm:p-3 lg:p-6">
       <div className="mx-auto max-w-[1320px] overflow-hidden rounded-[30px] border border-[#dbc7b6] bg-[#f6eeea] shadow-[0_20px_50px_rgba(102,33,39,0.12)]">
-        <header className="grid items-center gap-4 px-4 pb-4 pt-5 lg:px-8 xl:grid-cols-[auto_minmax(320px,440px)_auto]">
+        <header className="grid items-center gap-4 px-4 pb-4 pt-5 lg:px-8 xl:grid-cols-[minmax(560px,1fr)_auto_auto]">
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href="#"
+              className="inline-flex min-h-10 items-center gap-2 rounded-full border border-[#dab9bb] bg-white px-4 text-sm font-extrabold text-[#57262d]"
+            >
+              <User className="h-4 w-4" />
+              Login / Signup
+            </a>
+
+            <label
+              className="flex min-h-11 min-w-[300px] flex-1 items-center overflow-hidden rounded-full border border-[#d8bdbe] bg-white"
+              aria-label="Search products"
+            >
+              <span className="grid w-9 place-items-center text-[#a37b83]" aria-hidden>
+                <Search className="h-4 w-4" />
+              </span>
+              <input
+                type="search"
+                placeholder="Search"
+                className="h-11 flex-1 border-0 bg-transparent px-1 text-[0.95rem] font-semibold text-[#57262d] outline-none placeholder:text-[#a37b83]"
+              />
+              <button
+                type="button"
+                aria-label="Submit search"
+                className="h-11 min-w-14 border-l border-[#efd4d7] bg-[#ad1f2f] px-4 text-xs font-extrabold tracking-[0.04em] text-white"
+              >
+                Go
+              </button>
+            </label>
+          </div>
+
           <a
             className="font-[var(--font-title)] text-[clamp(2rem,3vw,2.75rem)] font-extrabold leading-none tracking-[0.02em] text-[#ad1f2f]"
             href="#"
@@ -77,100 +123,63 @@ export default function Home() {
             Dakingo
           </a>
 
-          <label
-            className="flex min-h-11 items-center overflow-hidden rounded-full border border-[#d8bdbe] bg-white"
-            aria-label="Search products"
-          >
-            <span className="w-9 text-center text-sm font-bold text-[#a37b83]" aria-hidden>
-              O
-            </span>
-            <input
-              type="search"
-              placeholder="Search"
-              className="h-11 flex-1 border-0 bg-transparent px-1 text-[0.95rem] font-semibold text-[#57262d] outline-none placeholder:text-[#a37b83]"
-            />
+          <div className="flex items-center xl:justify-end">
             <button
               type="button"
-              aria-label="Submit search"
-              className="h-11 min-w-14 border-l border-[#efd4d7] bg-[#ad1f2f] px-4 text-xs font-extrabold tracking-[0.04em] text-white"
-            >
-              Go
-            </button>
-          </label>
-
-          <div className="flex items-center justify-start gap-3 xl:justify-end">
-            <button
-              type="button"
-              className="min-h-10 rounded-full border border-[#dab9bb] bg-white px-4 text-sm font-extrabold text-[#57262d]"
+              className="inline-flex min-h-10 items-center gap-2 rounded-full border border-[#dab9bb] bg-white px-4 text-sm font-extrabold text-[#57262d]"
               aria-label="Open cart"
             >
+              <ShoppingCart className="h-4 w-4" />
               Cart
             </button>
-            <a href="#" className="text-sm font-bold text-[#6a4047]">
-              Login / Signup
-            </a>
           </div>
         </header>
 
-        <nav
-          className="flex items-center gap-4 overflow-x-auto border-y border-[#ecd6ca] bg-[#fff7f3] px-4 py-3 text-sm font-bold text-[#6a3c45] lg:px-8"
-          aria-label="Main categories"
-        >
-          <a href="#" className="whitespace-nowrap">
-            Cakes
-          </a>
-          <a href="#" className="whitespace-nowrap">
-            Theme Cakes
-          </a>
-          <a href="#" className="whitespace-nowrap">
-            Desserts
-          </a>
-          <a href="#" className="whitespace-nowrap">
-            Birthday
-          </a>
-          <a href="#" className="whitespace-nowrap">
-            Hampers
-          </a>
-          <a href="#" className="whitespace-nowrap">
-            Anniversary
-          </a>
+        <nav className="border-y border-[#ecd6ca] bg-[#fff7f3]" aria-label="Main categories">
+          <div className="grid items-center gap-x-2 gap-y-3 px-4 py-3 text-sm font-bold text-[#6a3c45] sm:grid-cols-4 lg:grid-cols-[repeat(7,minmax(0,1fr))_auto] lg:px-8">
+            {navItems.map((item) => (
+              <a key={item} href="#" className="text-center">
+                {item}
+              </a>
+            ))}
 
-          <details className="group relative">
-            <summary className="cursor-pointer list-none whitespace-nowrap">Occasions v</summary>
-            <ul className="absolute left-0 top-[calc(100%+10px)] z-10 grid min-w-40 gap-2 rounded-xl border border-[#e8ced0] bg-white p-2 shadow-[0_12px_32px_rgba(108,44,50,0.16)]">
-              <li>
-                <a
-                  href="#"
-                  className="block rounded-lg px-2 py-1 text-[#74404a] hover:bg-[#fef1f2]"
-                >
-                  Baby Shower
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block rounded-lg px-2 py-1 text-[#74404a] hover:bg-[#fef1f2]"
-                >
-                  Graduation
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block rounded-lg px-2 py-1 text-[#74404a] hover:bg-[#fef1f2]"
-                >
-                  Corporate
-                </a>
-              </li>
-            </ul>
-          </details>
+            <details className="group relative justify-self-center">
+              <summary className="cursor-pointer list-none whitespace-nowrap text-center">Occasions v</summary>
+              <ul className="absolute left-1/2 top-[calc(100%+10px)] z-10 grid min-w-40 -translate-x-1/2 gap-2 rounded-xl border border-[#e8ced0] bg-white p-2 shadow-[0_12px_32px_rgba(108,44,50,0.16)]">
+                <li>
+                  <a
+                    href="#"
+                    className="block rounded-lg px-2 py-1 text-[#74404a] hover:bg-[#fef1f2]"
+                  >
+                    Baby Shower
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="block rounded-lg px-2 py-1 text-[#74404a] hover:bg-[#fef1f2]"
+                  >
+                    Graduation
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="block rounded-lg px-2 py-1 text-[#74404a] hover:bg-[#fef1f2]"
+                  >
+                    Corporate
+                  </a>
+                </li>
+              </ul>
+            </details>
 
-          <button
-            type="button"
-            className="ml-auto whitespace-nowrap rounded-full bg-gradient-to-br from-[#9d1d2c] to-[#c63d4e] px-5 py-2 text-xs font-black tracking-[0.04em] text-white"
-          >
-            ORDER NOW
-          </button>
+            <button
+              type="button"
+              className="justify-self-center whitespace-nowrap rounded-full bg-gradient-to-br from-[#9d1d2c] to-[#c63d4e] px-5 py-2 text-xs font-black tracking-[0.04em] text-white lg:justify-self-end"
+            >
+              ORDER NOW
+            </button>
+          </div>
         </nav>
 
         <section
@@ -243,50 +252,40 @@ export default function Home() {
             <p className="mt-2 text-base font-bold text-[#7a4b54]">What will you wish for?</p>
 
             <div className="mt-4 flex gap-2" aria-hidden>
-              <span className="h-8 w-8 rounded-lg border border-[#edd6cd] bg-white" />
-              <span className="h-8 w-8 rounded-lg border border-[#edd6cd] bg-white" />
-              <span className="h-8 w-8 rounded-lg border border-[#edd6cd] bg-white" />
+              {quickPills.map((Icon, index) => (
+                <span
+                  key={`quick-pill-${index}`}
+                  className="grid h-8 w-8 place-items-center rounded-lg border border-[#edd6cd] bg-white text-[#ad1f2f]"
+                >
+                  <Icon className="h-4 w-4" />
+                </span>
+              ))}
             </div>
 
             <div
-              className="mt-4 grid grid-flow-col auto-cols-[minmax(118px,1fr)] gap-3 overflow-x-auto pb-2 md:grid-flow-row md:auto-cols-auto md:grid-cols-3 md:overflow-visible lg:grid-cols-6"
+              className="mt-4 grid max-w-[760px] grid-cols-2 gap-3 sm:grid-cols-4"
               role="tablist"
               aria-label="Menu tabs"
             >
-              {categories.map((item, index) => (
+              {categories.map((item, index) => {
+                const Icon = item.icon;
+                return (
                 <button
                   type="button"
                   role="tab"
-                  key={item}
+                  key={item.name}
                   aria-selected={index === 0}
-                  className={`min-h-[78px] rounded-[18px] border bg-white px-3 text-sm font-black ${
+                  className={`grid min-h-[86px] place-items-center rounded-[18px] border bg-white px-3 py-3 text-sm font-black ${
                     index === 0
                       ? "border-[#e7bcc2] text-[#ad1f2f] shadow-[0_8px_18px_rgba(143,65,72,0.14)]"
                       : "border-[#ecd6cc] text-[#81434f]"
                   }`}
                 >
-                  {item}
+                  <Icon className="mb-1 h-5 w-5" />
+                  {item.name}
                 </button>
-              ))}
-            </div>
-
-            <div className="mt-3 grid gap-2">
-              <details open className="overflow-hidden rounded-[14px] border border-[#edd5ca] bg-white">
-                <summary className="cursor-pointer list-none px-4 py-3 text-sm font-extrabold text-[#7b4650]">
-                  Classic Flavors -
-                </summary>
-                <div className="border-t border-[#f2e4dc] px-4 py-3 text-sm font-bold text-[#8b5660]">
-                  Chocolate, Vanilla, Red Velvet
-                </div>
-              </details>
-              <details className="overflow-hidden rounded-[14px] border border-[#edd5ca] bg-white">
-                <summary className="cursor-pointer list-none px-4 py-3 text-sm font-extrabold text-[#7b4650]">
-                  Quick Delivery Filters +
-                </summary>
-                <div className="border-t border-[#f2e4dc] px-4 py-3 text-sm font-bold text-[#8b5660]">
-                  30 min, 60 min, Same day
-                </div>
-              </details>
+                );
+              })}
             </div>
           </section>
 
@@ -304,8 +303,8 @@ export default function Home() {
             </div>
 
             <div
-              className="mt-4 grid grid-flow-col auto-cols-[minmax(210px,1fr)] gap-3 overflow-x-auto pb-2 md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:overflow-visible lg:grid-cols-3 xl:grid-cols-6"
-              aria-label="Scrollable product cards"
+              className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-4"
+              aria-label="Product cards"
             >
               {products.map((product, index) => (
                 <article
@@ -320,6 +319,9 @@ export default function Home() {
                       sizes="(max-width: 768px) 220px, 200px"
                       className="object-cover"
                     />
+                    <span className="absolute left-2 top-2 grid h-6 w-6 place-items-center rounded-full bg-white/95 text-[#ad1f2f]">
+                      <Heart className="h-3.5 w-3.5" />
+                    </span>
                   </div>
                   <h4 className="text-[0.98rem] font-black leading-tight text-[#6f3743]">
                     {product.name}
@@ -328,14 +330,17 @@ export default function Home() {
                     <strong className="text-[1.05rem] font-extrabold text-[#a72a3a]">
                       {product.price}
                     </strong>
-                    <span className="text-xs font-bold text-[#a1737d]">{product.rating} stars</span>
+                    <span className="inline-flex items-center gap-1 text-xs font-bold text-[#a1737d]">
+                      <Star className="h-3 w-3 fill-[#e6b422] text-[#e6b422]" />
+                      {product.rating}
+                    </span>
                   </div>
                   <button
                     type="button"
-                    className="ml-auto h-7 w-7 rounded-full bg-[#a91d2f] text-lg leading-none text-white"
+                    className="ml-auto grid h-7 w-7 place-items-center rounded-full bg-[#a91d2f] text-white"
                     aria-label={`Add ${product.name} to cart`}
                   >
-                    +
+                    <Plus className="h-4 w-4" />
                   </button>
                 </article>
               ))}
@@ -356,24 +361,33 @@ export default function Home() {
                   A glimpse, no secret spell, only social world!
                 </h4>
                 <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
-                  {promiseStats.map((stat) => (
+                  {promiseStats.map((stat) => {
+                    const Icon = stat.icon;
+                    return (
                     <div
                       className="grid min-h-[88px] place-items-center rounded-[14px] border border-[#f2dfd6] bg-[#fff9f7] p-2 text-center"
-                      key={stat}
+                      key={stat.label}
                     >
-                      <span className="grid h-6 w-6 place-items-center rounded-full border-2 border-[#c97c88] text-[0.62rem] font-black text-[#9f4251]" aria-hidden>
-                        O
+                      <span
+                        className="grid h-7 w-7 place-items-center rounded-full border-2 border-[#c97c88] text-[#9f4251]"
+                        aria-hidden
+                      >
+                        <Icon className="h-3.5 w-3.5" />
                       </span>
                       <strong className="mt-1 text-[0.78rem] font-black uppercase tracking-[0.02em] text-[#7e4b55]">
-                        {stat}
+                        {stat.label}
                       </strong>
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
 
               <div className="mt-3 flex flex-col gap-3 rounded-[18px] border border-[#f0ddd2] bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
-                <div>
+                <div className="flex items-start gap-3">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#fff4ef] text-[#a72d3d]">
+                    <Ticket className="h-5 w-5" />
+                  </span>
                   <h4 className="font-[var(--font-title)] text-[1.65rem] font-extrabold text-[#a72d3d]">
                     THE MAGICAL TICKET
                   </h4>
@@ -432,7 +446,7 @@ export default function Home() {
             Dakingo - Your Trusted FSSAI Certified Online Bakery for Every Celebration
           </div>
 
-          <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-[1.2fr_repeat(3,minmax(120px,1fr))_minmax(220px,1fr)]">
+          <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-[1.2fr_repeat(3,minmax(120px,1fr))]">
             <section className="grid content-start gap-2">
               <h5 className="font-[var(--font-title)] text-[2rem] font-extrabold text-[#ad1f2f]">Dakingo</h5>
               <a href="#" className="text-sm font-bold text-[#83505b]">
@@ -478,10 +492,23 @@ export default function Home() {
                 Custom Orders
               </a>
             </section>
+          </div>
 
-            <section className="grid content-start gap-2">
-              <h6 className="text-sm font-black tracking-[0.05em] text-[#782f3b]">NEWSLETTER</h6>
-              <label>
+          <section className="mt-5 rounded-[18px] border border-[#efd8cf] bg-white p-4">
+            <h6 className="text-sm font-black tracking-[0.05em] text-[#782f3b]">
+              MORE INFO AND OFFERS
+            </h6>
+            <p className="mt-1 text-sm font-bold text-[#83505b]">
+              Enter your email address below to receive updates.
+            </p>
+            <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <button
+                type="button"
+                className="h-10 w-fit rounded-full bg-[#ab1e2e] px-5 text-xs font-black text-white"
+              >
+                SUBSCRIBE
+              </button>
+              <label className="w-full sm:flex-1">
                 <span className="sr-only">Email</span>
                 <input
                   type="email"
@@ -489,14 +516,8 @@ export default function Home() {
                   className="h-11 w-full rounded-full border border-[#dcbec0] bg-white px-4 text-sm font-semibold text-[#57262d] outline-none placeholder:text-[#a37b83]"
                 />
               </label>
-              <button
-                type="button"
-                className="h-10 w-fit rounded-full bg-[#ab1e2e] px-5 text-xs font-black text-white"
-              >
-                SUBSCRIBE
-              </button>
-            </section>
-          </div>
+            </div>
+          </section>
         </footer>
       </div>
     </div>
