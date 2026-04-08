@@ -44,28 +44,28 @@ export default function Home() {
       price: "$500",
       rating: 4.5,
       reviews: 500,
-      image: "/images/product-truffle.svg",
+      image: "/images/product-truffle.jpg",
     },
     {
       name: "Choco Chip Truffle Cake",
       price: "$509",
       rating: 4.0,
       reviews: 360,
-      image: "/images/product-chip.svg",
+      image: "/images/product-chip.jpg",
     },
     {
       name: "Tropical Fruit N Almond Cake",
       price: "$509",
       rating: 3.5,
       reviews: 308,
-      image: "/images/product-fruit.svg",
+      image: "/images/product-fruit.jpg",
     },
     {
       name: "Rich Butterscotch Crunch",
       price: "$399",
       rating: 4.0,
       reviews: 308,
-      image: "/images/product-butterscotch.svg",
+      image: "/images/product-butterscotch.jpg",
     },
   ];
 
@@ -77,12 +77,20 @@ export default function Home() {
   ];
 
   const galleryCards = [
-    { title: "Birthday Story", image: "/images/gallery-birthday.svg" },
-    { title: "Reveal Moment", image: "/images/gallery-reveal.svg" },
-    { title: "Family Smile", image: "/images/gallery-family.svg" },
-    { title: "Office Celebration", image: "/images/gallery-office.svg" },
-    { title: "Wedding Joy", image: "/images/gallery-wedding.svg" },
-    { title: "Weekend Surprise", image: "/images/gallery-weekend.svg" },
+    { title: "Birthday Story", image: "/images/gallery-birthday.jpg" },
+    { title: "Reveal Moment", image: "/images/gallery-reveal.jpg" },
+    { title: "Family Smile", image: "/images/gallery-family.jpg" },
+    { title: "Office Celebration", image: "/images/gallery-office.jpg" },
+    { title: "Wedding Joy", image: "/images/gallery-wedding.jpg" },
+    { title: "Weekend Surprise", image: "/images/gallery-weekend.jpg" },
+  ];
+
+  const socialPeople = [
+    "/images/persona-1.jpg",
+    "/images/persona-2.jpg",
+    "/images/persona-3.jpg",
+    "/images/persona-4.jpg",
+    "/images/persona-5.jpg",
   ];
 
   const renderStars = (rating: number) => {
@@ -227,7 +235,7 @@ export default function Home() {
         >
           <div className="relative mx-auto aspect-square w-[clamp(180px,22vw,260px)] overflow-hidden rounded-full border-[7px] border-white/95 shadow-[0_14px_26px_rgba(39,7,8,0.28)]">
             <Image
-              src="/images/hero-main.svg"
+              src="/images/hero-main.jpg"
               alt="Chocolate cake with berries"
               fill
               sizes="(max-width: 1024px) 220px, 260px"
@@ -260,7 +268,7 @@ export default function Home() {
           >
             <div className="relative aspect-square w-28 overflow-hidden rounded-full border-[6px] border-white/95 shadow-[0_10px_20px_rgba(39,7,8,0.28)]">
               <Image
-                src="/images/hero-mini-a.svg"
+                src="/images/hero-mini-a.jpg"
                 alt="Mini cake slice"
                 fill
                 sizes="112px"
@@ -269,7 +277,7 @@ export default function Home() {
             </div>
             <div className="relative aspect-square w-28 overflow-hidden rounded-full border-[6px] border-white/95 shadow-[0_10px_20px_rgba(39,7,8,0.28)] lg:ml-4">
               <Image
-                src="/images/hero-mini-b.svg"
+                src="/images/hero-mini-b.jpg"
                 alt="Mini cake slice"
                 fill
                 sizes="112px"
@@ -396,29 +404,31 @@ export default function Home() {
             <div className="mt-4 grid gap-4 lg:grid-cols-[1.05fr_1fr]">
               <div className="grid gap-3 lg:h-[530px] lg:grid-rows-[1.55fr_1fr_0.62fr]">
                 <div className="h-full rounded-[18px] border border-[#f0ddd2] bg-[#F9F1EE] p-4">
-                  <h4 className="font-[var(--font-title)] text-2xl font-extrabold text-[#8b505a]">
-                    A glimpse, no secret spell, only social world!
-                  </h4>
-                  <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
-                    {promiseStats.map((stat) => {
-                      const Icon = stat.icon;
-                      return (
-                        <div
-                          className="grid min-h-[88px] place-items-center rounded-[14px] border border-[#efddd5] bg-[#fff9f6] p-2 text-center"
-                          key={stat.label}
-                        >
-                          <span
-                            className="grid h-7 w-7 place-items-center rounded-full border-2 border-[#c97c88] text-[#9f4251]"
-                            aria-hidden
+                  <div className="grid h-full grid-rows-[auto_1fr] gap-4">
+                    <h4 className="font-[var(--font-title)] text-[2rem] font-extrabold leading-[1] text-[#8b505a]">
+                      A glimpse, no secret spell, only social world!
+                    </h4>
+                    <div className="grid h-full grid-cols-2 gap-3 sm:grid-cols-4">
+                      {promiseStats.map((stat) => {
+                        const Icon = stat.icon;
+                        return (
+                          <div
+                            className="flex h-full flex-col items-center justify-center rounded-[14px] border border-[#efddd5] bg-[#fff9f6] p-3 text-center"
+                            key={stat.label}
                           >
-                            <Icon className="h-3.5 w-3.5" />
-                          </span>
-                          <strong className="mt-1 text-[0.78rem] font-black uppercase tracking-[0.02em] text-[#7e4b55]">
-                            {stat.label}
-                          </strong>
-                        </div>
-                      );
-                    })}
+                            <span
+                              className="grid h-10 w-10 place-items-center rounded-full border-2 border-[#c97c88] text-[#9f4251]"
+                              aria-hidden
+                            >
+                              <Icon className="h-5 w-5" />
+                            </span>
+                            <strong className="mt-2 text-[0.82rem] font-black uppercase tracking-[0.02em] text-[#7e4b55]">
+                              {stat.label}
+                            </strong>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
 
@@ -450,11 +460,20 @@ export default function Home() {
                 <div className="h-full rounded-[18px] border border-[#f0ddd2] bg-[#F9F1EE] px-4 py-2">
                   <div className="flex h-full items-center gap-3">
                     <div className="flex items-center" aria-hidden>
-                      <span className="h-8 w-8 rounded-full border border-[#e7d0c8] bg-[#f4d7cf]" />
-                      <span className="ml-2 h-8 w-8 rounded-full border border-[#e7d0c8] bg-[#f4d7cf]" />
-                      <span className="ml-2 h-8 w-8 rounded-full border border-[#e7d0c8] bg-[#f4d7cf]" />
-                      <span className="ml-2 h-8 w-8 rounded-full border border-[#e7d0c8] bg-[#f4d7cf]" />
-                      <span className="ml-2 h-8 w-8 rounded-full border border-[#e7d0c8] bg-[#f4d7cf]" />
+                      {socialPeople.map((person, index) => (
+                        <span
+                          key={`person-${index}`}
+                          className={`${index === 0 ? "" : "ml-2"} relative h-8 w-8 overflow-hidden rounded-full border border-[#e7d0c8] bg-[#f4d7cf]`}
+                        >
+                          <Image
+                            src={person}
+                            alt={`Social person ${index + 1}`}
+                            fill
+                            sizes="32px"
+                            className="object-cover"
+                          />
+                        </span>
+                      ))}
                     </div>
                     <strong className="text-base font-black text-[#7e4650]">Follow us on social!</strong>
                   </div>
