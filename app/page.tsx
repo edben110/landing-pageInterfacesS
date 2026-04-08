@@ -365,7 +365,7 @@ export default function Home() {
             </div>
 
             <div className="rounded-[20px] border border-[#f0ddd2] bg-white p-3">
-              <div className="grid max-h-[500px] grid-cols-1 gap-2 overflow-y-auto sm:grid-cols-2" aria-label="Customer moment gallery">
+              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2" aria-label="Customer moment gallery">
                 {galleryCards.map((item, index) => (
                   <article
                     className="overflow-hidden rounded-[14px] border border-[#efd8cf] bg-white"
