@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" role="img" aria-label="Cake slice image">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="__BG1__"/>
+      <stop offset="100%" stop-color="__BG2__"/>
+    </linearGradient>
+    <linearGradient id="slice" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="__SLICE1__"/>
+      <stop offset="100%" stop-color="__SLICE2__"/>
+    </linearGradient>
+  </defs>
+  <rect width="420" height="420" fill="url(#bg)"/>
+  <ellipse cx="210" cy="328" rx="142" ry="22" fill="#1d0d0a" opacity="0.4"/>
+  <path d="M114 308 L198 124 L284 308 Z" fill="url(#slice)"/>
+  <path d="M132 268 L198 130 L266 268 Z" fill="__CREAM__" opacity="0.85"/>
+  <path d="M106 126 C136 110 168 110 198 126 C228 110 260 110 292 126 L284 154 L114 154 Z" fill="__TOP__"/>
+  <circle cx="174" cy="120" r="20" fill="__BERRY1__"/>
+  <circle cx="208" cy="114" r="18" fill="__BERRY2__"/>
+  <circle cx="238" cy="122" r="16" fill="__BERRY3__"/>
+</svg>

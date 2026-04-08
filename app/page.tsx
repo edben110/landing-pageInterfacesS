@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Home() {
   const categories = [
     "Classic",
@@ -9,12 +11,42 @@ export default function Home() {
   ];
 
   const products = [
-    { name: "Rich Chocolate Truffle Cake", price: "$500", rating: "4.9" },
-    { name: "Choco Chip Truffle Cake", price: "$509", rating: "4.8" },
-    { name: "Tropical Fruit N Almond Cake", price: "$509", rating: "4.7" },
-    { name: "Rich Butterscotch Crunch", price: "$399", rating: "4.6" },
-    { name: "Classic Black Forest", price: "$449", rating: "4.8" },
-    { name: "Belgian Fudge Slice", price: "$579", rating: "4.9" },
+    {
+      name: "Rich Chocolate Truffle Cake",
+      price: "$500",
+      rating: "4.9",
+      image: "/images/product-truffle.svg",
+    },
+    {
+      name: "Choco Chip Truffle Cake",
+      price: "$509",
+      rating: "4.8",
+      image: "/images/product-chip.svg",
+    },
+    {
+      name: "Tropical Fruit N Almond Cake",
+      price: "$509",
+      rating: "4.7",
+      image: "/images/product-fruit.svg",
+    },
+    {
+      name: "Rich Butterscotch Crunch",
+      price: "$399",
+      rating: "4.6",
+      image: "/images/product-butterscotch.svg",
+    },
+    {
+      name: "Classic Black Forest",
+      price: "$449",
+      rating: "4.8",
+      image: "/images/product-forest.svg",
+    },
+    {
+      name: "Belgian Fudge Slice",
+      price: "$579",
+      rating: "4.9",
+      image: "/images/product-belgian.svg",
+    },
   ];
 
   const promiseStats = [
@@ -25,12 +57,12 @@ export default function Home() {
   ];
 
   const galleryCards = [
-    "Birthday Story",
-    "Reveal Moment",
-    "Family Smile",
-    "Office Celebration",
-    "Wedding Joy",
-    "Weekend Surprise",
+    { title: "Birthday Story", image: "/images/gallery-birthday.svg" },
+    { title: "Reveal Moment", image: "/images/gallery-reveal.svg" },
+    { title: "Family Smile", image: "/images/gallery-family.svg" },
+    { title: "Office Celebration", image: "/images/gallery-office.svg" },
+    { title: "Wedding Joy", image: "/images/gallery-wedding.svg" },
+    { title: "Weekend Surprise", image: "/images/gallery-weekend.svg" },
   ];
 
   return (
@@ -149,14 +181,16 @@ export default function Home() {
               "radial-gradient(circle at 84% 10%, rgba(255, 255, 255, 0.2) 0 70px, transparent 72px), radial-gradient(circle at 22% 65%, rgba(255, 255, 255, 0.14) 0 120px, transparent 122px), linear-gradient(135deg, #da5d72 0%, #bc2739 65%, #aa1126 100%)",
           }}
         >
-          <div
-            className="mx-auto aspect-square w-[clamp(180px,22vw,260px)] rounded-full border-[7px] border-white/95 shadow-[0_14px_26px_rgba(39,7,8,0.28)]"
-            style={{
-              background:
-                "radial-gradient(circle at 40% 30%, #f7d2cc 0 20%, transparent 21%), radial-gradient(circle at 70% 20%, #ad3742 0 24%, transparent 26%), radial-gradient(circle at 56% 63%, #5b2b1f 0 28%, #31150e 70%, #1d0805 100%)",
-            }}
-            aria-hidden
-          />
+          <div className="relative mx-auto aspect-square w-[clamp(180px,22vw,260px)] overflow-hidden rounded-full border-[7px] border-white/95 shadow-[0_14px_26px_rgba(39,7,8,0.28)]">
+            <Image
+              src="/images/hero-main.svg"
+              alt="Chocolate cake with berries"
+              fill
+              sizes="(max-width: 1024px) 220px, 260px"
+              className="object-cover"
+              priority
+            />
+          </div>
 
           <div className="text-center lg:text-left">
             <p className="text-xs font-extrabold uppercase tracking-[0.08em] text-[#ffe7ea]">
@@ -180,22 +214,24 @@ export default function Home() {
             className="mx-auto grid grid-cols-2 gap-3 lg:grid-cols-1"
             aria-label="Highlight previews"
           >
-            <div
-              className="aspect-square w-28 rounded-full border-[6px] border-white/95 shadow-[0_10px_20px_rgba(39,7,8,0.28)]"
-              style={{
-                background:
-                  "radial-gradient(circle at 40% 30%, #f7d2cc 0 20%, transparent 21%), radial-gradient(circle at 70% 20%, #ad3742 0 24%, transparent 26%), radial-gradient(circle at 56% 63%, #5b2b1f 0 28%, #31150e 70%, #1d0805 100%)",
-              }}
-              aria-hidden
-            />
-            <div
-              className="aspect-square w-28 rounded-full border-[6px] border-white/95 shadow-[0_10px_20px_rgba(39,7,8,0.28)] lg:ml-4"
-              style={{
-                background:
-                  "radial-gradient(circle at 40% 30%, #f7d2cc 0 20%, transparent 21%), radial-gradient(circle at 70% 20%, #ad3742 0 24%, transparent 26%), radial-gradient(circle at 56% 63%, #5b2b1f 0 28%, #31150e 70%, #1d0805 100%)",
-              }}
-              aria-hidden
-            />
+            <div className="relative aspect-square w-28 overflow-hidden rounded-full border-[6px] border-white/95 shadow-[0_10px_20px_rgba(39,7,8,0.28)]">
+              <Image
+                src="/images/hero-mini-a.svg"
+                alt="Mini cake slice"
+                fill
+                sizes="112px"
+                className="object-cover"
+              />
+            </div>
+            <div className="relative aspect-square w-28 overflow-hidden rounded-full border-[6px] border-white/95 shadow-[0_10px_20px_rgba(39,7,8,0.28)] lg:ml-4">
+              <Image
+                src="/images/hero-mini-b.svg"
+                alt="Mini cake slice"
+                fill
+                sizes="112px"
+                className="object-cover"
+              />
+            </div>
           </aside>
         </section>
 
@@ -276,14 +312,15 @@ export default function Home() {
                   className="grid gap-2 rounded-[18px] border border-[#eeddd3] bg-white p-3"
                   key={`${product.name}-${index}`}
                 >
-                  <div
-                    className="aspect-[1.34] w-full rounded-[14px]"
-                    style={{
-                      background:
-                        "radial-gradient(circle at 20% 22%, #f7e0d6 0 16%, transparent 17%), radial-gradient(circle at 70% 30%, #c35b5f 0 14%, transparent 15%), radial-gradient(circle at 50% 60%, #774326 0 34%, #4f2416 72%, #2e110d 100%)",
-                    }}
-                    aria-hidden
-                  />
+                  <div className="relative aspect-[1.34] w-full overflow-hidden rounded-[14px]">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      sizes="(max-width: 768px) 220px, 200px"
+                      className="object-cover"
+                    />
+                  </div>
                   <h4 className="text-[0.98rem] font-black leading-tight text-[#6f3743]">
                     {product.name}
                   </h4>
@@ -369,17 +406,20 @@ export default function Home() {
                 {galleryCards.map((item, index) => (
                   <article
                     className="overflow-hidden rounded-[14px] border border-[#efd8cf] bg-white"
-                    key={`${item}-${index}`}
+                    key={`${item.title}-${index}`}
                   >
-                    <div
-                      className="h-32 w-full"
-                      style={{
-                        background:
-                          "radial-gradient(circle at 30% 30%, rgba(255, 238, 226, 0.9) 0 18%, transparent 19%), radial-gradient(circle at 70% 65%, rgba(181, 67, 72, 0.66) 0 24%, transparent 26%), linear-gradient(135deg, #ddb39f 0%, #9e4e4d 100%)",
-                      }}
-                      aria-hidden
-                    />
-                    <strong className="block p-2 text-sm font-extrabold text-[#79414a]">{item}</strong>
+                    <div className="relative h-32 w-full overflow-hidden">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <strong className="block p-2 text-sm font-extrabold text-[#79414a]">
+                      {item.title}
+                    </strong>
                   </article>
                 ))}
               </div>
